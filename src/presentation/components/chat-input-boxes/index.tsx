@@ -1,3 +1,3 @@
-export * from "./TextMessageBox";
-export * from "./TextMessageBoxFile";
-export * from "./TextMessageBoxSelect";
+export * from './TextMessageBox'
+export * from './TextMessageBoxFile'
+export * from './TextMessageBoxSelect'

@@ -1,26 +1,27 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom'
+import { type ToDoType } from '../../../interfaces'
 
 interface SidebarMenuItemProps {
-  to: string;
-  icon: string;
-  title: string;
-  description: string;
+  to: string
+  icon: string
+  title: string
+  description: string
 }
 
 export const SidebarMenuItem = ({
   to,
   icon,
   title,
-  description,
-}: SidebarMenuItemProps) => {
+  description
+}: SidebarMenuItemProps): ToDoType => {
   return (
     <NavLink
       key={to}
       to={to}
       className={({ isActive }) =>
         isActive
-          ? "flex justify-center items-center bg-gray-800 rounded-md p-2 transition-colors"
-          : "flex justify-center items-center hover:bg-gray-800 rounded-md p-2 transition-colors"
+          ? 'flex justify-center items-center bg-gray-800 rounded-md p-2 transition-colors'
+          : 'flex justify-center items-center hover:bg-gray-800 rounded-md p-2 transition-colors'
       }
     >
       <i className={`${icon} text-2xl mr-4 text-indigo-400`} />
@@ -29,5 +30,5 @@ export const SidebarMenuItem = ({
         <span className="text-gray-400 text-sm">{description}</span>
       </div>
     </NavLink>
-  );
-};
+  )
+}

@@ -1,8 +1,10 @@
+import { type ToDoType } from '../../../interfaces'
+
 interface Props {
-  text: string;
+  text: string
 }
 
-export const MyMessage = ({ text }: Props) => {
+export const MyMessage = ({ text }: Props): ToDoType => {
   return (
     <div className="col-start-6 col-end-13 p-3 rounded-lg">
       <div className="flex items-center justify-start flex-row-reverse">
@@ -14,5 +16,5 @@ export const MyMessage = ({ text }: Props) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

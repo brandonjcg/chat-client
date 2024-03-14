@@ -1,6 +1,7 @@
-import './TypingLoader.css';
+import { type ToDoType } from '../../../interfaces'
+import './TypingLoader.css'
 
-export const TypingLoader = () => {
+export const TypingLoader = (): ToDoType => {
   return (
     <div className="typing">
         <div className="circle scaling"></div>

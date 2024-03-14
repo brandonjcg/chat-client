@@ -1,1 +1,1 @@
-export * from "./TypingLoader";
+export * from './TypingLoader'

@@ -1,8 +1,9 @@
-import {  Outlet } from "react-router-dom";
-import { menuRoutes } from "../router/router";
-import { SidebarMenuItem } from "../components/sidebar";
+import { Outlet } from 'react-router-dom'
+import { menuRoutes } from '../router/router'
+import { SidebarMenuItem } from '../components/sidebar'
+import { type ToDoType } from '../../interfaces'
 
-export const DashboardLayout = () => {
+export const DashboardLayout = (): ToDoType => {
   return (
     <main className="flex flex-row mt-7">
       <nav className="hidden sm:flex flex-col ml-5 w-[370px] min-h-[calc(100vh-3.0rem)] bg-white bg-opacity-10 p-5 rounded-3xl">
@@ -26,5 +27,5 @@ export const DashboardLayout = () => {
         </div>
       </section>
     </main>
-  );
-};
+  )
+}

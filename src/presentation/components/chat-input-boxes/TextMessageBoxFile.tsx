@@ -1,30 +1,31 @@
-import { FormEvent, useRef, useState } from "react";
+import { type FormEvent, useRef, useState } from 'react'
+import { type ToDoType } from '../../../interfaces'
 
 interface Props {
-  onSendMessage: (message: string) => void;
-  placeholder?: string;
-  disableCorrections?: boolean;
-  accept?: string;
+  onSendMessage: (message: string) => void
+  placeholder?: string
+  disableCorrections?: boolean
+  accept?: string
 }
 
 export const TextMessageBoxFile = ({
   onSendMessage,
   placeholder,
-  accept = "image/*",
-  disableCorrections = false,
-}: Props) => {
-  const [message, setMessage] = useState("");
-  const [selectedFile, setSelectedFile] = useState<File | null>();
-  const inputFileRef = useRef<HTMLInputElement>(null);
+  accept = 'image/*',
+  disableCorrections = false
+}: Props): ToDoType => {
+  const [message, setMessage] = useState('')
+  const [selectedFile, setSelectedFile] = useState<File | null>()
+  const inputFileRef = useRef<HTMLInputElement>(null)
 
-  const hanldeSendMessage = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const hanldeSendMessage = (event: FormEvent<HTMLFormElement>): ToDoType => {
+    event.preventDefault()
 
-    if (!message.trim().length) return;
+    if (message.trim().length === 0) return
 
-    onSendMessage(message);
-    setMessage("");
-  };
+    onSendMessage(message)
+    setMessage('')
+  }
 
   return (
     <form
@@ -44,7 +45,7 @@ export const TextMessageBoxFile = ({
           ref={inputFileRef}
           hidden
           accept={accept}
-          onChange={(event) => setSelectedFile(event.target.files?.item(0))}
+          onChange={(event) => { setSelectedFile(event.target.files?.item(0)) }}
         />
       </div>
       <div className="flex-grow">
@@ -55,26 +56,28 @@ export const TextMessageBoxFile = ({
             name="message"
             className="flex w-full border rounded-xl text-gray-800 focus:outline-none focus:border-indigo-300 pl-4 h-10"
             placeholder={placeholder}
-            autoComplete={disableCorrections ? "on" : "off"}
-            autoCorrect={disableCorrections ? "on" : "off"}
-            spellCheck={disableCorrections ? "true" : "false"}
+            autoComplete={disableCorrections ? 'on' : 'off'}
+            autoCorrect={disableCorrections ? 'on' : 'off'}
+            spellCheck={disableCorrections ? 'true' : 'false'}
             value={message}
-            onChange={(event) => setMessage(event.target.value)}
+            onChange={(event) => { setMessage(event.target.value) }}
           />
         </div>
       </div>
       <div className="ml-4">
-        <button className="btn-primary" disabled={!selectedFile}>
-          {!selectedFile ? (
+        <button className="btn-primary" disabled={selectedFile === null}>
+          {selectedFile === null
+            ? (
             <span className="mr-2">Enviar</span>
-          ) : (
+              )
+            : (
             <span className="mr-2">
-              {selectedFile.name.substring(0, 10) + "..."}
+              {selectedFile?.name.substring(0, 10) + '...'}
             </span>
-          )}
+              )}
           <i className="fa-regular fa-paper-plane" />
         </button>
       </div>
     </form>
-  );
-};
+  )
+}

@@ -1,10 +1,11 @@
-import Markdown from "react-markdown";
+import Markdown from 'react-markdown'
+import { type ToDoType } from '../../../interfaces'
 
 interface Props {
-  text: string;
+  text: string
 }
 
-export const GptMessage = ({ text }: Props) => {
+export const GptMessage = ({ text }: Props): ToDoType => {
   return (
     <div className="col-start-1 col-end-9 p-3 rounded-lg">
       <div className="flex flex-row items-start">
@@ -16,5 +17,5 @@ export const GptMessage = ({ text }: Props) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
